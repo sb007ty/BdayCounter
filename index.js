@@ -1,6 +1,19 @@
+function convertToIST(date) {
+  const ISTOffset = 330; // IST offset in minutes (India is UTC+5:30)
+  const ISTTime = new Date(date.getTime() + ISTOffset * 60000);
+  return ISTTime;
+}
+
 let interv = setInterval(() => {
-  let lastDate = new Date("2023-12-27");
   let currentDate = new Date();
+
+  // Define the target date (27th December at 12:00 AM IST)
+  const targetDate = new Date("2023-12-27T00:00:00+05:30");
+
+  let lastDate = convertToIST(targetDate);
+  currentDate = convertToIST(currentDate);
+
+  //   console.log(lastDate, currentDate);
   let differenceMs = lastDate - currentDate;
 
   //   console.log(lastDate, currentDate, differenceMs);
@@ -16,9 +29,9 @@ let interv = setInterval(() => {
   let mins = document.querySelector(".mins");
   let secs = document.querySelector(".secs");
   if (
-    differenceHours == 0 &&
-    differenceMinutes == 0 &&
-    differenceSeconds == 0
+    differenceHours <= 0 &&
+    differenceMinutes <= 0 &&
+    differenceSeconds <= 0
   ) {
     document.querySelector(".count-down").innerHTML =
       "<strong>BDAY TIME :))</strong>";
