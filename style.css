@@ -1,6 +1,7 @@
 main {
   /* background-color: #b76e79; */
-  display: flex;
+  /* display: flex; */
+  /* flex-direction: column; */
   align-items: center;
   gap: 20px;
 }
@@ -13,8 +14,20 @@ body {
   align-items: center;
   flex-direction: column;
   background-color: #b76e79;
-  border: 5px black solid;
+  /* border: 5px black solid; */
   width: 50vw;
   height: 50vh;
   margin: auto;
+}
+
+.vid {
+  /* margin-top: 50px; */
+}
+
+audio {
+  /* display: none; */
+}
+
+.hidden {
+  display: none;
 }
